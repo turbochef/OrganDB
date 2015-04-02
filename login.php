@@ -20,6 +20,7 @@ $_SESSION['username'] = $username;
 echo "Invalid Login Credentials.";
 }
 }
+
 //3.1.4 if the user is logged in Greets the user with message
 if (isset($_SESSION['username'])){
 $username = $_SESSION['username'];
@@ -32,32 +33,75 @@ echo "<a href='logout.php'>Logout</a>";
 }else{
 //3.2 When the user visits the page first time, simple login form will be displayed.
 ?>
-<!DOCTYPE html>
- <head>
-<title>CodingCyber - Simple Login Script</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-</head>
-<body>
-<!-- Form for logging in the users -->
-
-<div class="register-form">
 <?php
 	if(isset($msg) & !empty($msg)){
 		echo $msg;
 	}
  ?>
-<h1>Login</h1>
-<form action="" method="POST">
-    <p><label>User Name : </label>
-	<input id="username" type="text" name="username" placeholder="username" /></p>
- 
-     <p><label>Password&nbsp;&nbsp; : </label>
-	 <input id="password" type="password" name="password" placeholder="password" /></p>
- 
-    <a class="btn" href="register.php">Signup</a>
-    <input class="btn register" type="submit" name="submit" value="Login" />
-    </form>
-</div>
-<?php } ?>
+ <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-heart-empty"></span>OrganDonation</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="login.html">login</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+
+		<!-- login -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Login
+			</div>
+			<div class="panel-body">
+				<form action="" method="POST">
+					<div class="form-group">
+						<label>Username</label>
+						<input class="form-control" id="username" type="text" name="username" placeholder="username"/>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Password</label>
+						<input id="password" class="form-control" type="password" name="password" placeholder="password" />
+					</div>
+
+					<a class="btn btn-default" href="register.php">Signup</a>
+    <input class="btn btn-default" type="submit" name="submit" value="Login" />
+					
+				</form>
+			</div>
+		</div>
+		<!-- login -->
+
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php
+	}
+ ?>
